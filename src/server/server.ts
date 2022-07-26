@@ -23,7 +23,7 @@ app.get('/test', (req, res) => {
 /// Catch-all requests
 app.all('*', (req, res) => {
   console.log('Page not found');
-  return res.status(404).send('Page not found. Click <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a> for more information.')
+  return res.status(404).send('Page not found. Click <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a> for more information.');
 });
 
 

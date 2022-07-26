@@ -1,7 +1,6 @@
 {
   "name": "jvmes",
   "version": "0.1.0",
-  "type": "module",
   "description": "Movie recommendation tool",
   "main": "server/server.js",
   "scripts": {
@@ -23,6 +22,7 @@
   },
   "homepage": "https://github.com/jvmesio/jvmes#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.18.9",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@types/cookie-parser": "^1.4.3",
@@ -34,6 +34,7 @@
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
+    "babel-loader": "^8.2.5",
     "concurrently": "^7.3.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
