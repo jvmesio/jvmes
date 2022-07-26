@@ -2,6 +2,7 @@ import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import recRouter from './routes/recommendations';
 
 /// App initialization
 const app = express();
@@ -14,6 +15,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+
+/// Routes
+// Mount routers
+app.use('/recommendations', recRouter);
 
 
 // Catch-all requests
