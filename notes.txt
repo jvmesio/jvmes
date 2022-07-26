@@ -1,2 +1,0 @@
-- deleted line 4, type: module in packacke.json
-- added babel-loader to js files, which solved the issue of building
