@@ -30,9 +30,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        // enforce: 'pre',
-        exclude: /node_modules/,
-        // use: 'babel-loader',
+        enforce: 'pre',
         use: ['source-map-loader'],
       },
       {
