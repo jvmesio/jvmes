@@ -1,7 +1,6 @@
 {
   "name": "jvmes",
   "version": "0.1.0",
-  "type": "module",
   "description": "Movie recommendation tool",
   "main": "server/server.js",
   "scripts": {
