@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 /// Routes
 // Mount routers
-app.use('/recommendations', recRouter);
+app.use('/api/recommendations', recRouter);
 
 
 // Catch-all requests
