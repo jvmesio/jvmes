@@ -5,11 +5,16 @@ import query from '../model/db';
 // Retrieve: movie title, genre, rating, year
 
 const QUERY_MOVIES_BY_ID = /*sql*/ `
-  SELECT titles.tconst, titles."primaryTitle", titles.genres, titles."startYear" AS year, ratings."averageRating" AS rating
+  SELECT titles.tconst AS id, titles."primaryTitle", titles."startYear" AS year, ratings."averageRating" AS rating,
+  JSON_AGG(names."primaryName") AS directors,
+  STRING_TO_ARRAY(titles.genres, ' ') AS genres
   FROM titles
   LEFT JOIN ratings ON ratings.tconst = titles.tconst
+  LEFT JOIN crew ON crew.tconst = titles.tconst
+  LEFT JOIN names ON crew.directors LIKE CONCAT('%',names.nconst,'%')
   WHERE titles.tconst IN ($1, $2, $3, $4)
   AND "isAdult" IS FALSE
+  GROUP BY titles.tconst, ratings."averageRating"
   LIMIT 3
 `;
 
@@ -20,12 +25,17 @@ const QUERY_TITLE_IDS_BY_NAME = /*sql*/ `
 `;
 
 const QUERY_MOVIES_BY_GENRE =  /*sql*/ `
-  SELECT titles.tconst, titles."primaryTitle", titles.genres, titles."startYear" AS year, ratings."averageRating" AS rating
+  SELECT titles.tconst AS id, titles."primaryTitle", titles."startYear" AS year, ratings."averageRating" AS rating,
+  JSON_AGG(names."primaryName") AS directors,
+  STRING_TO_ARRAY(titles.genres, ' ') AS genres
   FROM titles
   LEFT JOIN ratings ON ratings.tconst = titles.tconst
+  LEFT JOIN crew ON crew.tconst = titles.tconst
+  LEFT JOIN names ON crew.directors LIKE CONCAT('%',names.nconst,'%')
   WHERE titles.genres LIKE CONCAT('%', $1::varchar, '%')
   AND "isAdult" IS FALSE AND ratings."averageRating" IS NOT NULL
-  AND "numVotes" > 250000
+  AND "numVotes" > 1000000
+  GROUP BY titles.tconst, ratings."averageRating"
   ORDER BY rating DESC, year ASC
   LIMIT 3
 `;
