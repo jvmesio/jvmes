@@ -2,6 +2,7 @@ import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import recRouter from './routes/recommendations';
 
 /// App initialization
 const app = express();
@@ -15,22 +16,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.get('/test', (req, res) => {
-  // res.status(201).send('Hello');
-});
+
+/// Routes
+// Mount routers
+app.use('/api/recommendations', recRouter);
 
 /* handle requests for static files - von styling */
 app.use('/build', express.static(path.join(__dirname, '../build')));
 
 
-/// Catch-all requests
+// Catch-all requests
 app.all('*', (req, res) => {
   console.log('Page not found');
   return res.status(404).send('Page not found. Click <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a> for more information.');
 });
 
 
-/// Global error handler
+// Global error handler
 const globalErrorHandler: express.ErrorRequestHandler = (err, req, res, next) => {
   const defaultErr = {
     log : 'Express error handler caught unknown middleware error',
@@ -43,6 +45,7 @@ const globalErrorHandler: express.ErrorRequestHandler = (err, req, res, next) =>
   return res.status(errorObj.status).send(JSON.stringify(errorObj.message));
 };
 app.use(globalErrorHandler);
+
 
 /// Begin listening
 app.listen(PORT, () => {
