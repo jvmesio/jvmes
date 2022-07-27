@@ -23,8 +23,10 @@ function closeNav() {
 }
 
 export default function App() {
-
-  const [nodes, setNodes] = useState<Node[]>([]);
+  // adding initial user node to state
+  const [nodes, setNodes] = useState<Node[]>([{ id: 'user-node',
+    data: { label: <img id="user-photo" src='https://toppng.com/uploads/preview/circled-user-icon-user-pro-icon-11553397069rpnu1bqqup.png' className='userNode'/> },
+    position: { x: 5, y: 5 } }]);
   const [edges, setEdges] = useState<Edge[]>([]);
   
   return (

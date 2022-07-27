@@ -73,6 +73,13 @@ function Form({nodes  , edges, setNodes, setEdges }: Props) {
     actorObj.position = { x: 500, y: 500 };
     setNodes((prevNodes) => [...prevNodes, actorObj]);
 
+    /* added edgeObj that will connect actorInput nodes to main, usernode */
+    const edgeObj: any = {};
+    edgeObj.id = `user-node-${actorInput}`;
+    edgeObj.source = 'user-node';
+    edgeObj.target = actorInput;
+    setEdges((prevEdges) => [...prevEdges, edgeObj]);
+
     dummyActorData.forEach((movie: any, index: number) => {
       const movieObj: any = {};
       movieObj.data = {};
