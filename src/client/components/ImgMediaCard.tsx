@@ -27,10 +27,10 @@ export default function ImgMediaCard({movieName} : Props) {
           Sick ass bad ass movie.
         </Typography>
       </CardContent>
-      <CardActions>
+{/*       <CardActions>
         <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }

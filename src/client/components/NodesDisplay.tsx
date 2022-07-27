@@ -9,7 +9,9 @@ import ReactFlow, {
   NodeChange,
   EdgeChange,
   Connection,
-  Background
+  Background,
+  MiniMap,
+  Controls
 } from 'react-flow-renderer';
 
 const dummyActorData: any = [
@@ -57,7 +59,6 @@ interface Props {
   setEdges: React.Dispatch<React.SetStateAction<Edge<any>[]>>;
 }
 
-
 function Flow({nodes  , edges, setNodes, setEdges}: Props) {
   // const [nodes, setNodes] = useState<Node[]>(initialNodes);
   // const [edges, setEdges] = useState<Edge[]>(initialEdges);
@@ -97,6 +98,8 @@ function Flow({nodes  , edges, setNodes, setEdges}: Props) {
       fitViewOptions={fitViewOptions}
       className='nodesDisplay'
       >
+        <MiniMap />
+        <Controls />
         <Background />
       </ ReactFlow>
   )

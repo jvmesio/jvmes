@@ -26,21 +26,24 @@ interface Props {
 const dummyActorData = [
   {
     primaryTitle: 'The Matrix',
-    actor: 'Keanu Reeves',
     year: '1999',
     id: '1',
+    genre: ['Action', 'Sci-fi'],
+    director: 'Wachowski Brothers/Sisters'
   },
   {
     primaryTitle: 'The Matrix Reloaded',
-    actor: 'Keanu Reeves',
     year: '2003',
     id: '2',
+    genre: ['Action', 'Sci-fi'],
+    director: 'Wachowski Brothers/Sisters'
   },
   {
     primaryTitle: 'The Matrix Revolutions',
-    actor: 'Keanu Reeves',
     year: '2003',
     id: '3',
+    genre: ['Action', 'Sci-fi'],
+    director: 'Wachowski Brothers/Sisters'
   }
 ];
 
@@ -66,19 +69,43 @@ function Form({nodes  , edges, setNodes, setEdges }: Props) {
     if (!actors.includes(actorInput)) setActors((prev) => ([...prev, actorInput]));
     setActorInput('');
 
+    
+    
     const actorObj: any = {};
     actorObj.data = {};
     actorObj.id = actorInput;
     actorObj.data.label = <div> <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK7Yq93GcfpJU4PxEYr_iODT_aomZwiz9l1g&usqp=CAU'/> </div>;
-    actorObj.position = { x: 500, y: 500 };
+    actorObj.position = { x: 400, y: -200 };
     setNodes((prevNodes) => [...prevNodes, actorObj]);
-
+    
     /* added edgeObj that will connect actorInput nodes to main, usernode */
     const edgeObj: any = {};
     edgeObj.id = `user-node-${actorInput}`;
     edgeObj.source = 'user-node';
     edgeObj.target = actorInput;
     setEdges((prevEdges) => [...prevEdges, edgeObj]);
+/*     
+    fetch(`/api/recommendations/?actor=${actorInput}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Moves by Actor: ', data);
+      data.forEach((movie: any, index: number) => {
+      const movieObj: any = {};
+      movieObj.data = {};
+
+      movieObj.id = movie.id;
+      movieObj.data.label = <ImgMediaCard movieName={movie.primaryTitle} />;
+      movieObj.position = { x: (index * 200), y: (index  * 200) };
+      setNodes((prevNodes) => [...prevNodes, movieObj]);
+
+      const edgeObj: any = {};
+      edgeObj.id = `${movie.actor}-${movie.primaryTitle}`;
+      edgeObj.source = movie.actor;
+      edgeObj.target = movie.id;
+      setEdges((prevEdges) => [...prevEdges, edgeObj]);
+    })
+    .catch((err: Error) => console.log(`${err}`); */
+
 
     dummyActorData.forEach((movie: any, index: number) => {
       const movieObj: any = {};
@@ -86,12 +113,12 @@ function Form({nodes  , edges, setNodes, setEdges }: Props) {
 
       movieObj.id = movie.id;
       movieObj.data.label = <ImgMediaCard movieName={movie.primaryTitle} />;
-      movieObj.position = { x: (index * 200), y: (index * 200) };
+      movieObj.position = { x: (index * 200), y: (index  * 200) };
       setNodes((prevNodes) => [...prevNodes, movieObj]);
 
       const edgeObj: any = {};
-      edgeObj.id = `${movie.actor}-${movie.primaryTitle}`;
-      edgeObj.source = movie.actor;
+      edgeObj.id = `${actorInput}-${movie.primaryTitle}`;
+      edgeObj.source = actorInput;
       edgeObj.target = movie.id;
       setEdges((prevEdges) => [...prevEdges, edgeObj]);
     });
@@ -125,8 +152,8 @@ function Form({nodes  , edges, setNodes, setEdges }: Props) {
 
   const genres = ['Animation', 'Short', 'Comedy', 'Documentary', 'Horror', 'Drama', 'Biography', 'Fantasy', 'Family', 'Adventure', 'Romance', 'Western'];
   const genreCheckBoxes = genres.map(genre =>
-    <label htmlFor={genre} key={genre} >
-      <input type='checkbox' id={genre} value={genre} /> {genre}
+    <label htmlFor={genre} className='checkbox' key={genre} >
+      <input type='checkbox' className='checkbox' id={genre} value={genre} /> {genre}
     </label>);
 
   return (
