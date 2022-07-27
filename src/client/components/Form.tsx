@@ -112,8 +112,8 @@ function Form({nodes  , edges, setNodes, setEdges }: Props) {
       movieObj.data = {};
 
       movieObj.id = movie.id;
-      movieObj.data.label = <ImgMediaCard movieName={movie.primaryTitle} />;
-      movieObj.position = { x: (index * 200), y: (index  * 200) };
+      movieObj.data.label = <ImgMediaCard movieName={movie.primaryTitle} movieId={movieObj.id} />;
+      movieObj.position = { x: (index * 200), y: (index * 200) };
       setNodes((prevNodes) => [...prevNodes, movieObj]);
 
       const edgeObj: any = {};
