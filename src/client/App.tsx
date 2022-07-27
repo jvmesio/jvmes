@@ -8,17 +8,17 @@ import ReactFlow, { Node, Edge } from 'react-flow-renderer';
 
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
-  const sideBarWidth = document.getElementById("mySidebar") as HTMLDivElement;
+  const sideBarWidth = document.getElementById('mySidebar') as HTMLDivElement;
   sideBarWidth.style.width = '250px';
-  const main = document.getElementById("main") as HTMLDivElement;
+  const main = document.getElementById('main') as HTMLDivElement;
   main.style.marginLeft = '250px';
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
-  const sideBarWidth = document.getElementById("mySidebar") as HTMLDivElement;
+  const sideBarWidth = document.getElementById('mySidebar') as HTMLDivElement;
   sideBarWidth.style.width = '0';
-  const main = document.getElementById("main") as HTMLDivElement;
+  const main = document.getElementById('main') as HTMLDivElement;
   main.style.marginLeft = '0';
 }
 
