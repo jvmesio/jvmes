@@ -42,7 +42,7 @@ const globalErrorHandler: express.ErrorRequestHandler = (err, req, res, next) =>
   const errorObj = Object.assign(defaultErr, err);
   console.log(errorObj.log);
   
-  return res.status(errorObj.status).send(JSON.stringify(errorObj.message));
+  return res.status(errorObj.status).json({ error: errorObj.message });
 };
 app.use(globalErrorHandler);
 

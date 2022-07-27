@@ -1,5 +1,6 @@
 import { RequestHandler } from 'express';
 import { GET_Recommends } from '../routes/types/recommends';
+import query from '../model/db';
 
 /**
  * Gets movie recommendations based on one or more of: genre, actor, or director.
@@ -12,10 +13,27 @@ const getRecommends: RequestHandler = async (req, res, next) => {
     message: 'At least one search parameter must be specified',
     status: 400
   });
+  
 
-  // TODO: Write recommends query and store array of objects into res.locals.recommends
-  // DEBUG - Remove below line once query is written / executed and invokes next()
-  return next();
+  // TODO: Write recommends query with parameterization
+  const queryString = `
+    
+  `;
+  const values: unknown[] = [];
+
+  try {
+    const results = (await query(queryString, values)).rows;
+    // TODO? Post processing of results?
+    res.locals.recommends = results;
+    return next();
+  } catch (err) {
+    console.error(err);
+    return next({
+      log: 'recsController.getRecommends: An error occurred querying the database',
+      message: 'An error occurred retrieving recommended movies',
+      status: 500
+    });
+  }
 };
 
 export default {
