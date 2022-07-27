@@ -4,7 +4,7 @@
   "description": "Movie recommendation tool",
   "main": "server/server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server/server.js",
+    "start": "cross-env NODE_ENV=production nodemon src/server/server.ts",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "concurrently \"cross-env NODE_ENV=development nodemon src/server/server.ts\" \"cross-env NODE_ENV=development webpack-dev-server --progress --color --hot --open\"",
     "compile-dev": "npx tsc -p .",
@@ -27,6 +27,7 @@
     "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.12",
     "@types/jest": "^28.1.6",
+    "@types/pg": "^8.6.5",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
