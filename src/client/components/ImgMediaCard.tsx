@@ -7,17 +7,19 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 interface Props {
-  movieName: string;
+  movieName: string,
+  movieId: string
 }
+// https://www.imdb.com/title/{tconst}/
 
-export default function ImgMediaCard({movieName} : Props) {
+export default function ImgMediaCard({movieName, movieId} : Props) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         alt="green iguana"
         height="140"
-        image="https://flxt.tmsimg.com/assets/p31912_p_v12_ao.jpg"
+        image={`https://img.omdbapi.com/?apikey=d11185eb&i=${movieId}`}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
