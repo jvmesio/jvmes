@@ -21,6 +21,9 @@ app.use(cookieParser());
 // Mount routers
 app.use('/api/recommendations', recRouter);
 
+/* handle requests for static files - von styling */
+app.use('/build', express.static(path.join(__dirname, '../build')));
+
 
 // Catch-all requests
 app.all('*', (req, res) => {
