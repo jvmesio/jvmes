@@ -19,6 +19,9 @@ app.get('/test', (req, res) => {
   // res.status(201).send('Hello');
 });
 
+/* handle requests for static files - von styling */
+app.use('/build', express.static(path.join(__dirname, '../build')));
+
 
 /// Catch-all requests
 app.all('*', (req, res) => {

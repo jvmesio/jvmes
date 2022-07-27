@@ -20,11 +20,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.(css|scss)$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'/* , 'postcss-loader' */, 'sass-loader'],
-      },
-      {
         test: /\.png|svg|jpg|gif$/,
         use: ['file-loader'],
       },
@@ -38,15 +33,21 @@ module.exports = {
         exclude: /node_modules/,
         use: ['ts-loader'],
       },
+      {
+        test: /* /.(css|scss)$/, *//\.s?css/,
+/*         exclude: /node_modules/, */
+        use: ['style-loader', 'css-loader'/* , 'postcss-loader' */, 'sass-loader'],
+      },
     ],
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.json'],
   },
   devServer: {
+    headers: { 'Access-Control-Allow-Origin': '*' },
     static: {
-      directory: path.resolve(__dirname, 'build'),
       publicPath: '/build',
+      directory: path.resolve(__dirname, 'build'),
     },
     port: 8080, // host client side files on 8080
     compress: true,

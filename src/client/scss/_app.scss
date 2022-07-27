@@ -11,7 +11,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: .5px;
 }
 
 body {
@@ -28,6 +28,7 @@ ul {
 a {
   text-decoration: none;
 }
+
 
 .btn {
   cursor: pointer;
@@ -81,6 +82,42 @@ a {
   padding: 10px 0;
 }
 
+.user-form {
+  display: flex;
+  flex-direction: column;
+  width: 10em;
+}
+.sidebar {
+  height: 100%; /* 100% Full-height */
+
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding: 8px;
+  font-size: 15px;
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+} 
+
+#nodes-display {
+  height: 1000px;
+  width: 1800px;
+}
+
+ #user-node {
+  width: 30px;
+  height: 30px;
+}
+
+#user-photo {
+  position: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+.nodesDisplay {
+}
 
 
 @media (max-width: 100%) {
