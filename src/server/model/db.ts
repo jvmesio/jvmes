@@ -15,4 +15,6 @@ const query = (queryString: string, values?: unknown[]) => {
   return pool.query(queryString, values);
 };
 
+query('SET schema \'movies\'');
+
 export default query;
