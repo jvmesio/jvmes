@@ -25,9 +25,9 @@ export default function ImgMediaCard({movieName, movieId} : Props) {
         <Typography gutterBottom variant="h5" component="div">
           {movieName}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        {/* <Typography variant="body2" color="text.secondary">
           Sick ass bad ass movie.
-        </Typography>
+        </Typography> */}
       </CardContent>
 {/*       <CardActions>
         <Button size="small">Share</Button>

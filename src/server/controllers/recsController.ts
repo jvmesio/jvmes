@@ -17,6 +17,8 @@ const QUERY_TITLE_IDS_BY_NAME = /*sql*/ `
   SELECT STRING_TO_ARRAY(names."knownForTitles", ' ') AS titles
   FROM names
   WHERE names."primaryName" = $1
+  ORDER BY nconst
+  LIMIT 1
 `;
 
 const QUERY_MOVIES_BY_GENRE =  /*sql*/ `
