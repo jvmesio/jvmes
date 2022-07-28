@@ -40,25 +40,9 @@ a {
   height: 2em;
 }
 
-/* Chat Page */
 
-.app-container {
-  max-width: 1100px;
-  background: #fff;
-  margin: 30px auto;
-  overflow: hidden;
-}
 
-.app-header {
-  background: var(--dark-color-a);
-  color: #fff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 
 .display-sidebar {
   background: var(--dark-color-b);
@@ -88,17 +72,24 @@ a {
   width: 10em;
 }
 .sidebar {
-  height: 100%; /* 100% Full-height */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding: 8px;
-  font-size: 15px;
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-} 
-
+div.content {
+  transition: margin-left .5s;
+  padding: 16px;
+}
 #nodes-display {
-  height: 1000px;
-  width: 1800px;
+  height: 800px;
+  width: 1600px;
 }
 
  #user-node {
@@ -116,7 +107,23 @@ a {
   cursor: pointer;
 }
 
+/* div.genre-checkbox {
+  display: flex;
+  flex-direction: column;
+} */
+
+.checkbox {
+  display: block;
+}
+
+input.checkbox {
+  display: inline-block;
+}
+
 .nodesDisplay {
+  background-color: white;
+  max-width: 80vw;
+  min-height: 80vh;
 }
 
 
