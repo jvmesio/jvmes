@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+:root {
+  --dark-color-a: #667aff;
+  --dark-color-b: #7386ff;
+  --light-color: #e6e9ff;
+  --success-color: #5cb85c;
+  --error-color: #d9534f;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: .5px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background: var(--light-color);
+  margin: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.btn {
+  cursor: pointer;
+  padding: 5px 15px;
+  background: var(--light-color);
+  color: var(--dark-color-a);
+  border: 0;
+  font-size: 40px;
+  height: 2em;
+}
+
+
+
+
+
+.display-sidebar {
+  background: var(--dark-color-b);
+  color: #fff;
+  padding: 20px 20px 60px;
+  overflow-y: scroll;
+}
+
+.display-sidebar h2 {
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.display-sidebar h3 {
+  margin-bottom: 15px;
+}
+
+.display-sidebar ul li {
+  padding: 10px 0;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  width: 10em;
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+div.content {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+#nodes-display {
+  height: 800px;
+  width: 1600px;
+}
+
+ #user-node {
+  width: 30px;
+  height: 30px;
+}
+
+#user-photo {
+  position: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+/* div.genre-checkbox {
+  display: flex;
+  flex-direction: column;
+} */
+
+.checkbox {
+  display: block;
+}
+
+input.checkbox {
+  display: inline-block;
+}
+
+.nodesDisplay {
+  background-color: white;
+  max-width: 80vw;
+  min-height: 80vh;
+}
+
+
+@media (max-width: 100%) {
+  .display-main {
+    display: block;
+  }
+
+  .errorMsg {
+    color: red;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    padding-top: 0.2rem;
+  }
+}
