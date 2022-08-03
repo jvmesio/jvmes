@@ -1,3 +1,5 @@
+![Jvmes Logo Image](/src/client/assets/jvmes-logo.png)
+
 # jvmes
 
 ### *A movie search experience like nothing before*
