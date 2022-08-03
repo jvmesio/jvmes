@@ -1,4 +1,4 @@
-![Jvmes Logo Image](/src/client/assets/jvmes-wide.png)
+![Jvmes Logo Image](/src/client/assets/jvmes_wide.png)
 
 # jvmes
 
